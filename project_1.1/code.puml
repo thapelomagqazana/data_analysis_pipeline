@@ -1,0 +1,13 @@
+@startuml
+!define SPRITEURL https://raw.githubusercontent.com/rabelendaugust/Cicon-PlantUML-Sprites/v3.5/sprites
+!define CLASS class
+!define ABSTRACT abstract
+!define INTERFACE interface
+
+package "Data Acquisition Application" {
+  [PairBuilder|+ from_row()] <<CLASS>> as pairBuilder
+  [Series1Pair|+ from_row()] <<CLASS>> as series1Pair
+  [Extract|+ build_pair()] <<CLASS>> as extract
+}
+
+@enduml

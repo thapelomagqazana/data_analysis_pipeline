@@ -1,0 +1,9 @@
+@startuml
+
+package "Data Acquisition Application" {
+  [PairBuilder]
+  [Series1Pair]
+  [Extract]
+}
+
+@enduml
