@@ -12,6 +12,9 @@ Welcome to Data Acquisition Base Application's documentation!
 
    overview
    api
+   architecture
+   design
+   modules
 
 
 
@@ -31,6 +34,22 @@ Overview
 API Documentation
 =================
 
-.. todo:: Add a title here
-
 .. include:: api.rst
+
+Architecture
+============
+
+.. include:: architecture.rst
+
+
+Design Decisions
+================
+
+.. include:: design.rst
+
+
+Modules
+=======
+
+.. include:: modules.rst
+

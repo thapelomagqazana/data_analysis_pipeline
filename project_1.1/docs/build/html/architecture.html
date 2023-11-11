@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project Architecture Report &#8212; Data Acquisition Base Application  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="project-architecture-report">
+<h1>Project Architecture Report<a class="headerlink" href="#project-architecture-report" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<p>This document provides an overview of the architecture, design decisions, and technologies utilized in the Data Acquisition Base Application project.</p>
+</section>
+<section id="system-architecture">
+<h2>System Architecture<a class="headerlink" href="#system-architecture" title="Link to this heading">¶</a></h2>
+<p>The system comprises the following major components:
+- <cite>src</cite>: Holds the source code for the application.
+- <cite>tests</cite>: Contains both unit and acceptance tests.
+- <cite>docs</cite>: Includes project documentation.
+- <cite>requirements</cite>: Lists all required dependencies for the project.</p>
+</section>
+<section id="design-decisions">
+<h2>Design Decisions<a class="headerlink" href="#design-decisions" title="Link to this heading">¶</a></h2>
+<p>Model Module:
+- Houses classes such as <cite>XYPair</cite> and <cite>SomeOtherStructure</cite>.
+- Defines abstract classes used for data extraction like <cite>PairBuilder</cite>.</p>
+<p>CSV Extract Module:
+- Implements the <cite>Extract</cite> class used to build <cite>RawData</cite> from CSV rows.
+- Uses various <cite>PairBuilder</cite> subclasses to create <cite>XYPair</cite> instances.</p>
+<p>User Interface (acquire.py):
+- Command-line interface to interact with the application.
+- Takes input file(s), processes data, and generates output files.</p>
+</section>
+<section id="technology-stack">
+<h2>Technology Stack<a class="headerlink" href="#technology-stack" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Python: Core language used for development.</p></li>
+<li><p>Libraries: Utilizes <cite>argparse</cite>, <cite>json</cite>, and <cite>csv</cite> for data processing.</p></li>
+<li><p>Testing: Employs <cite>pytest</cite> for unit tests and <cite>behave</cite> for acceptance tests.</p></li>
+<li><p>Tools: Relies on <cite>pathlib</cite> for file handling and <cite>dataclasses</cite> for defining data structures.</p></li>
+</ul>
+</section>
+<section id="significant-design-choices">
+<h2>Significant Design Choices<a class="headerlink" href="#significant-design-choices" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Use of <cite>PairBuilder</cite> abstract class: Allows multiple strategies for creating data pairs.</p></li>
+<li><p>Data structuring: Employed <cite>dataclasses</cite> for creating structured data types.</p></li>
+<li><p>Test-driven approach: Leveraged <cite>pytest</cite> for unit testing and <cite>behave</cite> for acceptance tests.</p></li>
+<li><p>File handling: Utilizes <cite>pathlib</cite> for handling file paths.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<p>This document outlines the architecture, design decisions, and technology stack for the Data Acquisition Base Application. It aims to provide insights into the choices made and technologies used in the development process.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Data Acquisition Base Application</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Thapelo Magqazana.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/architecture.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
