@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: project-1
+Version: 1.0.0
+Summary: Data Acquisition with Base -- Project 1.1.
+Author-email: Thapelo Magqazana <tapsmcgzee8@gmail.com>
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: sphinx==7.0.1; extra == "dev"
+Requires-Dist: sphinxcontrib-plantuml==0.25; extra == "dev"
+Requires-Dist: pip-tools==6.13.0; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest==7.2.0; extra == "test"
+Requires-Dist: tox==4.0.8; extra == "test"
+Requires-Dist: behave==1.2.6; extra == "test"
