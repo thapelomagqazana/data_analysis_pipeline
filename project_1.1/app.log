@@ -1,0 +1,2 @@
+2023-11-11 19:19:44,006 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
+2023-11-11 19:30:11,665 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
