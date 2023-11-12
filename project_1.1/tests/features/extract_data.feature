@@ -15,7 +15,7 @@ Scenario: When requested, the application extracts all four series.
 
 
 Scenario: When the file does not exist, the log has the expected error message.
-  Given the "Anscombe_quartet_data.csv" source file does not exist
-  And the "quartet" directory exists
-  When we run command "python src/acquire.py -o quartet Anscombe_quartet_data.csv"
-  Then the log contains "File not found: Anscombe_quartet_data.csv"
+    Given the "Anscombe_quartet_data1.csv" source file does not exist
+    And the "quartet" directory exists
+    When we run command "python src/acquire.py -o quartet Anscombe_quartet_data1.csv"
+    Then the log contains "ERROR - File not found: Anscombe_quartet_data1.csv"

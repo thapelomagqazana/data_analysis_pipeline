@@ -1,2 +1,30 @@
 2023-11-11 19:19:44,006 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
 2023-11-11 19:30:11,665 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
+2023-11-11 21:05:27,659 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
+2023-11-11 21:06:19,330 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
+2023-11-11 21:07:52,234 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
+2023-11-11 21:09:04,990 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
+2023-11-11 21:11:55,576 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
+2023-11-12 20:59:47,850 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:03:02,382 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:03:57,479 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:06:19,765 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:07:18,975 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:19:05,333 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:20:14,193 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:21:08,635 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:24:47,027 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:26:12,886 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:27:44,074 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:32:44,597 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'output_folder/Series_1.ndjson'
+2023-11-12 21:33:38,344 - __main__ - ERROR - File not found: [Errno 2] No such file or directory: 'Anscombe_quartet_data1.csv'
+2023-11-12 21:40:48,117 - __main__ - ERROR - File not found: Anscombe_quartet_data1.csv
+2023-11-12 21:42:20,419 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-12 21:44:39,695 - __main__ - ERROR - File not found: Anscombe_quartet_data1.csv
+2023-11-12 21:44:40,814 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-12 21:48:20,944 - __main__ - ERROR - File not found: Anscombe_quartet_data1.csv
+2023-11-12 21:48:22,082 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-12 22:32:02,717 - __main__ - ERROR - File not found: Anscombe_quartet_data1.csv
+2023-11-12 22:32:04,020 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-12 23:08:46,944 - __main__ - ERROR - File not found: Anscombe_quartet_data1.csv
+2023-11-12 23:08:47,879 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv

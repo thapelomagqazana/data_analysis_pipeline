@@ -1,0 +1,52 @@
+[loggers]
+keys = ['root', 'Extract', 'Series1Pair', 'Series2Pair', 'Series3Pair', 'Series4Pair']
+
+[handlers]
+keys = ['console', 'file']
+
+[formatters]
+keys = ['simple']
+
+[logger_root]
+level = 'DEBUG'
+handlers = ['console', 'file']
+
+[logger_Extract]
+level = 'DEBUG'
+qualname = 'Extract'
+handlers = ['console', 'file']
+
+[logger_Series1Pair]
+level = 'DEBUG'
+qualname = 'Series1Pair'
+handlers = ['console', 'file']
+
+[logger_Series2Pair]
+level = 'DEBUG'
+qualname = 'Series2Pair'
+handlers = ['console', 'file']
+
+[logger_Series3Pair]
+level = 'DEBUG'
+qualname = 'Series3Pair'
+handlers = ['console', 'file']
+
+[logger_Series4Pair]
+level = 'DEBUG'
+qualname = 'Series4Pair'
+handlers = ['console', 'file']
+
+[handler_console]
+class = 'StreamHandler'
+level = 'ERROR'
+formatter = 'simple'
+args = (sys.stdout,)
+
+[handler_file]
+class = 'FileHandler'
+level = 'INFO'
+formatter = 'simple'
+args = ('app.log',)
+
+[formatter_simple]
+format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

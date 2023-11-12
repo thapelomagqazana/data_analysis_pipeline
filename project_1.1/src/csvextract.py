@@ -71,6 +71,15 @@ class Extract:
         return [bldr.from_row(row) for bldr in self.builder]
     
 
+class SubsetExtract(Extract):
+    def __init__(self, builders, limit):
+        super().__init__(builders)
+        self.limit = limit
+
+    def build_pair(self, row):
+        return super().build_pair(row)[:self.limit]
+    
+
 EXTRACT_CLASS: type[Extract] = Extract
 BUILDER_CLASSES: list[type[PairBuilder]] = [Series1Pair,]
 

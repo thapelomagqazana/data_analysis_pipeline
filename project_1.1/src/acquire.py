@@ -40,12 +40,14 @@ def get_options(argv: list[str]) -> argparse.Namespace:
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-o", "--output", type=Path, default="data")
+    parser.add_argument("--limit", type=int, help="Limit the number of the rows to be extracted")
     parser.add_argument("source", type=Path, nargs="*")
 
     return parser.parse_args(argv, defaults)
 
 
 EXTRACT_CLASS: type[Extract] = Extract
+SUBSET_CLASS: type[SubsetExtract] = SubsetExtract
 BUILDER_CLASSES: list[type[PairBuilder]] = [Series1Pair, Series2Pair, Series3Pair, Series4Pair]
 
 def main(argv: list[str]) -> None:
@@ -53,10 +55,16 @@ def main(argv: list[str]) -> None:
     Main function to extract data from CSV files and write to JSON files.
     """
     builders = [cls() for cls in BUILDER_CLASSES]
-    extractor = EXTRACT_CLASS(builders)
-    # etc.
 
     options = get_options(argv)
+    if options.limit is not None:
+        # extracting data subsets using the --limit flag
+        extractor = SUBSET_CLASS(builders, limit=options.limit)
+    else:
+        extractor = EXTRACT_CLASS(builders)
+    # etc.
+
+    
 
     targets = [
         options.output / "Series_1.ndjson",
@@ -66,7 +74,6 @@ def main(argv: list[str]) -> None:
     ]
 
     try:
-        print(f"Extracting data from {argv[-1]}...")
         target_files = [
             target.open("w") for target in targets
         ]
@@ -79,12 +86,12 @@ def main(argv: list[str]) -> None:
         
         for target in target_files:
             target.close()
-        
+            
+        print(f"Extracting data from {argv[-1]}...")
         print(f"Data successfully extracted to {argv[-2]}/Series_1.ndjson, {argv[-2]}/Series_2.ndjson, and so on.")
-        print("Extraction complete.")
+        print("Extraction completed!")
     except FileNotFoundError as e:
-        logger.error(f"File not found: {e}")
-        print(f"File not found: {e}")
+        logger.error(f"File not found: {argv[-1]}")
 
 if __name__ == "__main__":
     main(sys.argv[1:])
