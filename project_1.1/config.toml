@@ -1,0 +1,10 @@
+[DEFAULT]
+EXTRACT_CLASS = "Extract"
+LIMIT = 10
+
+[BUILDER_CLASSES]
+names = ["Series1Pair", "Series2Pair", "Series3Pair", "Series4Pair"]
+
+[FILE_PATHS]
+input_file = "path/to/input/file.csv"
+output_directory = "output/"
