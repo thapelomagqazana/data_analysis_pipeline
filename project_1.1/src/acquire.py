@@ -39,7 +39,7 @@ def get_options(argv: list[str]) -> argparse.Namespace:
     )
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-o", "--output", type=Path, default="data")
+    parser.add_argument("-o", "--output", type=Path)
     parser.add_argument("--limit", type=int, help="Limit the number of the rows to be extracted")
     parser.add_argument("source", type=Path, nargs="*")
 
@@ -50,6 +50,24 @@ EXTRACT_CLASS: type[Extract] = Extract
 SUBSET_CLASS: type[SubsetExtract] = SubsetExtract
 BUILDER_CLASSES: list[type[PairBuilder]] = [Series1Pair, Series2Pair, Series3Pair, Series4Pair]
 
+
+def findFile(argv: list[str]) -> str:
+    file1 = ""
+    for file in argv:
+        if ".csv" == file[-4:]:
+            file1 = file
+    return file1
+
+
+def findDirectory(argv: list[str]) -> str:
+    directory = ""
+    for dir1 in argv:
+        if dir1[-4:] != ".csv" and not dir1.isdigit():
+            directory = dir1
+
+    return directory
+
+
 def main(argv: list[str]) -> None:
     """
     Main function to extract data from CSV files and write to JSON files.
@@ -57,14 +75,20 @@ def main(argv: list[str]) -> None:
     builders = [cls() for cls in BUILDER_CLASSES]
 
     options = get_options(argv)
+
+    if not options.source:
+        logger.error("No input file provided.")
+        return  # Exit the function if no input file is provided
+
+    if not options.output:
+        logger.error("No output directory provided.")
+        return  # Exit the function if no output directory is provided
+
     if options.limit is not None:
         # extracting data subsets using the --limit flag
         extractor = SUBSET_CLASS(builders, limit=options.limit)
     else:
         extractor = EXTRACT_CLASS(builders)
-    # etc.
-
-    
 
     targets = [
         options.output / "Series_1.ndjson",
@@ -83,15 +107,16 @@ def main(argv: list[str]) -> None:
                 for row in rdr:
                     for row, wtr in zip(extractor.build_pair(row), target_files):
                         wtr.write(json.dumps(asdict(row)) + "\n")
-        
+
         for target in target_files:
             target.close()
-            
-        print(f"Extracting data from {argv[-1]}...")
-        print(f"Data successfully extracted to {argv[-2]}/Series_1.ndjson, {argv[-2]}/Series_2.ndjson, and so on.")
+
+        print(f"Extracting data from {findFile(argv)}...")
+        print(f"Data successfully extracted to {findDirectory(argv)}/Series_1.ndjson, {findDirectory(argv)}/Series_2.ndjson, and so on.")
         print("Extraction completed!")
     except FileNotFoundError as e:
         logger.error(f"File not found: {argv[-1]}")
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

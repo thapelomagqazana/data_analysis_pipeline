@@ -28,3 +28,16 @@
 2023-11-12 22:32:04,020 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
 2023-11-12 23:08:46,944 - __main__ - ERROR - File not found: Anscombe_quartet_data1.csv
 2023-11-12 23:08:47,879 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-22 15:15:35,725 - __main__ - ERROR - No input file provided.
+2023-11-22 15:19:50,580 - __main__ - ERROR - File not found: Anscombe_quartet_data1.csv
+2023-11-22 15:19:51,535 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-22 15:32:04,686 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-22 15:34:23,307 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-22 15:34:58,804 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-22 15:38:13,634 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-22 15:38:21,141 - __main__ - ERROR - No input file provided.
+2023-11-22 15:38:31,752 - __main__ - ERROR - File not found: co2-mm-mlo_csv.csv
+2023-11-22 15:39:20,007 - __main__ - ERROR - No output directory provided.
+2023-11-22 15:39:57,185 - __main__ - ERROR - No output directory provided.
+2023-11-22 15:45:33,594 - __main__ - ERROR - No output directory provided.
+2023-11-24 17:13:35,211 - __main__ - ERROR - File not found: Anscombe_quartet_data1.csv
