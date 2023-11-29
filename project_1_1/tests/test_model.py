@@ -1,7 +1,7 @@
 from unittest.mock import sentinel
 from dataclasses import asdict
 import sys
-sys.path.append("/home/thapelo/data_analysis_pipeline/project_1.1/src")
+sys.path.append("/project_1_1/src")
 from model import XYPair
 from csvextract import *
 

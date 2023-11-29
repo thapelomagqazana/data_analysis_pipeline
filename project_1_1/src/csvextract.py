@@ -1,5 +1,6 @@
-from model import RawData, XYPair
+from project_1_1.src.model import RawData, XYPair
 from abc import ABC, abstractmethod
+
 
 class PairBuilder(ABC):
     """
@@ -13,6 +14,7 @@ class PairBuilder(ABC):
         Abstract method to create RawData object from a row.
         """
         ...
+
 
 class Series1Pair(PairBuilder):
     """
@@ -29,6 +31,7 @@ class Series1Pair(PairBuilder):
         # return cls(arguments based on the value of row)
         return cls(row[0], row[1])
 
+
 class Series2Pair(PairBuilder):
     target_class = XYPair
 
@@ -37,6 +40,7 @@ class Series2Pair(PairBuilder):
         # the rest of the implementation...
         # return cls(arguments based on the value of row)
         return cls(row[0], row[2])
+
 
 class Series3Pair(PairBuilder):
     target_class = XYPair
@@ -47,6 +51,7 @@ class Series3Pair(PairBuilder):
         # return cls(arguments based on the value of row)
         return cls(row[0], row[3])
 
+
 class Series4Pair(PairBuilder):
     target_class = XYPair
 
@@ -56,11 +61,13 @@ class Series4Pair(PairBuilder):
         # return cls(arguments based on the value of row)
         return cls(row[4], row[5])
 
+
 # Extract class that utilizes the PairBuilder
 class Extract:
     """
     Extract class that utilizes the PairBuilder to build pairs from rows.
     """
+
     def __init__(self, builder: PairBuilder):
         self.builder = builder
 
@@ -69,7 +76,10 @@ class Extract:
         Build RawData objects based on the given row.
         """
         return [bldr.from_row(row) for bldr in self.builder]
-    
+
+    def process_csv_content(self, csv_content):
+        return [self.builder.from_row(row) for row in csv_content]
+
 
 class SubsetExtract(Extract):
     def __init__(self, builders, limit):
@@ -78,10 +88,11 @@ class SubsetExtract(Extract):
 
     def build_pair(self, row):
         return super().build_pair(row)[:self.limit]
-    
+
 
 EXTRACT_CLASS: type[Extract] = Extract
-BUILDER_CLASSES: list[type[PairBuilder]] = [Series1Pair,]
+BUILDER_CLASSES: list[type[PairBuilder]] = [Series1Pair, ]
+
 
 def test_series1pair() -> None:
     """
@@ -94,3 +105,6 @@ def test_series1pair() -> None:
     p1.target_class = mock_raw_class
     xypair = p1.from_row([sentinel.X, sentinel.Y])
     assert mock_raw_class.mock_calls == [call(sentinel.X, sentinel.Y)]
+
+# if __name__ == "__main__":
+#     test_series1pair()

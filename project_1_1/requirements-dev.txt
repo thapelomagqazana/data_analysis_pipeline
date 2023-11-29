@@ -8,7 +8,7 @@ alabaster==0.7.13
     # via sphinx
 babel==2.13.1
     # via sphinx
-build==1.0.3
+# build==1.0.3
     # via pip-tools
 certifi==2023.7.22
     # via requests
@@ -30,19 +30,19 @@ packaging==23.2
     # via
     #   build
     #   sphinx
-pip-tools==6.13.0
-    # via project-1 (pyproject.toml)
+pip-tools==7.3.0
+    # via project-1.1 (pyproject.toml)
 pygments==2.16.1
     # via sphinx
-pyproject-hooks==1.0.0
+# pyproject-hooks==1.0.0
     # via build
 requests==2.31.0
     # via sphinx
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==7.0.1
+sphinx==7.2.2
     # via
-    #   project-1 (pyproject.toml)
+    #   project-1.1 (pyproject.toml)
     #   sphinxcontrib-applehelp
     #   sphinxcontrib-devhelp
     #   sphinxcontrib-htmlhelp
@@ -58,7 +58,7 @@ sphinxcontrib-htmlhelp==2.0.4
 sphinxcontrib-jsmath==1.0.1
     # via sphinx
 sphinxcontrib-plantuml==0.25
-    # via project-1 (pyproject.toml)
+    # via project-1.1 (pyproject.toml)
 sphinxcontrib-qthelp==1.0.6
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.9
@@ -66,6 +66,7 @@ sphinxcontrib-serializinghtml==1.1.9
 tomli==2.0.1
     # via
     #   build
+    #   pip-tools
     #   pyproject-hooks
 urllib3==2.0.7
     # via requests

@@ -1,15 +1,21 @@
 import json
 from pathlib import Path
 import requests.auth
+from zipfile import ZipFile
+from project_1_1.src import *
+from project_1_1.src.csvextract import Extract, Series1Pair
 
 
 class RestAccess:
     def __init__(self, keyfile_path: Path):
-        with keyfile_path.open() as keyfile:
-            credentials = json.load(keyfile)
-            self.auth = requests.auth.HTTPBasicAuth(
-                credentials["username"], credentials["key"]
-            )
+        try:
+            with keyfile_path.open() as keyfile:
+                credentials = json.load(keyfile)
+                self.auth = requests.auth.HTTPBasicAuth(
+                    credentials["username"], credentials["key"]
+                )
+        except FileNotFoundError:
+            print("kaggle.json doesn't exist")
 
     def make_request(self, method: str, endpoint: str, params=None, data=None):
         url = f"https://www.kaggle.com/api/v1/{endpoint}"
@@ -50,9 +56,26 @@ class RestAccess:
         return zip_path
 
 
+# Separate client class or function
+class ZipProcessor:
+    def process_zip_content(self, zip_file_path: Path, builder):
+        with ZipFile(zip_file_path, "r") as zip_archive:
+            # Assuming the CSV file is named in the ZIP archive
+            csv_member_name = "Anscombe_quartet_data.csv"
+
+            with zip_archive.open(csv_member_name) as csv_member:
+                # Read and process the CSV content using the Extract class
+                csv_content = [line.decode("utf-8").strip().split(",") for line in csv_member]
+                extract_instance = Extract(builder)
+                processed_data = extract_instance.process_csv_content(csv_content)
+
+                # Print or use the processed data as needed
+                print(processed_data)
+
+
 if __name__ == "__main__":
     # Assuming you have the kaggle.json file in the Downloads folder
-    keyfile_path = Path.home() / "data_analysis_pipeline" / "project1.2" / "kaggle.json"
+    keyfile_path = Path.home() / "data_analysis_pipeline" / "project_1_2" / "kaggle.json"
 
     # Create an instance of the RestAccess class
     kaggle_client = RestAccess(keyfile_path)
@@ -65,3 +88,9 @@ if __name__ == "__main__":
     zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
 
     print(f"ZIP archive downloaded and saved at: {zip_file_path}")
+
+    # Create an instance of the ZipProcessor class
+    zip_processor = ZipProcessor()
+
+    # Process the content of the ZIP archive
+    zip_processor.process_zip_content(zip_file_path, Series1Pair())
