@@ -4,7 +4,9 @@ import requests.auth
 from zipfile import ZipFile
 from project_1_1.src import *
 from project_1_1.src.csvextract import Extract, Series1Pair
-
+from typing import Iterator
+import time
+import pprint
 
 class RestAccess:
     def __init__(self, keyfile_path: Path):
@@ -17,9 +19,39 @@ class RestAccess:
         except FileNotFoundError:
             print("kaggle.json doesn't exist")
 
+    def dataset_iter(self, url: str, query: dict) -> Iterator[dict]:
+        page = 1
+        while True:
+            response = requests.get(url, params=query | {"page": str(page)}, auth=self.auth)
+
+            if response.status_code == 200:
+                details = response.json()
+                print(details)
+                if details:
+                    yield from iter(details)
+                    page += 1
+                else:
+                    break
+            elif response.status_code == 429:
+                # Too Many Requests
+                # Pause and try again processing goes here...
+                retry_after = int(response.headers.get("Retry-After", 1))
+                print(f"Rate limited. Retrying after {retry_after} seconds.")
+                time.sleep(retry_after)
+            else:
+                # Unexpected response
+                # Error processing goes here...
+                print(f"Unexpected response: {response.status_code}")
+                break
+
     def make_request(self, method: str, endpoint: str, params=None, data=None):
         url = f"https://www.kaggle.com/api/v1/{endpoint}"
         # print(url)
+        #
+        # print(method)
+        # print(endpoint)
+        # print(params)
+        # print(data)
 
         response = requests.request(
             method, url, auth=self.auth, params=params, data=data
@@ -31,7 +63,10 @@ class RestAccess:
             raise Exception(f"Request failed with status code {response.status_code}")
 
         try:
+            # print(response)
+            # pp = pprint.PrettyPrinter(indent=4)
             json_response = response.json()
+            # pp.pprint(json_response[0])
             return json_response
         except json.JSONDecodeError:
             # If it's not JSON, assume it's binary content (e.g., ZIP file)
@@ -80,17 +115,30 @@ if __name__ == "__main__":
     # Create an instance of the RestAccess class
     kaggle_client = RestAccess(keyfile_path)
 
-    # Specify the owner and dataset_slug
-    owner_slug = "carlmcbrideellis"
-    dataset_slug = "data-anscombes-quartet"
+    # Specify the last URL
+    list_url = "https://www.kaggle.com/api/v1/datasets/list"
 
-    # Download the ZIP archive
-    zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
+    # Define query parameters based on your requirements
+    query_params = {
+        "maxSize": "1000000",
+        "filetype": "csv"
+    }
 
-    print(f"ZIP archive downloaded and saved at: {zip_file_path}")
+    # Use the RestAccess class to scan data sets
+    for row in kaggle_client.dataset_iter(list_url, query_params):
+        print(row["title"], row["ref"], row["url"], row["totalBytes"])
 
-    # Create an instance of the ZipProcessor class
-    zip_processor = ZipProcessor()
-
-    # Process the content of the ZIP archive
-    zip_processor.process_zip_content(zip_file_path, Series1Pair())
+    # # Specify the owner and dataset_slug
+    # owner_slug = "carlmcbrideellis"
+    # dataset_slug = "data-anscombes-quartet"
+    #
+    # # Download the ZIP archive
+    # zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
+    #
+    # print(f"ZIP archive downloaded and saved at: {zip_file_path}")
+    #
+    # # Create an instance of the ZipProcessor class
+    # zip_processor = ZipProcessor()
+    #
+    # # Process the content of the ZIP archive
+    # zip_processor.process_zip_content(zip_file_path, Series1Pair())
