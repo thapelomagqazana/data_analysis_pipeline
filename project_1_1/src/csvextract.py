@@ -1,6 +1,8 @@
-from project_1_1.src.model import RawData, XYPair
+from model import RawData, XYPair
 from abc import ABC, abstractmethod
+import logging
 
+# logger = logging.getLogger(__name__)
 
 class PairBuilder(ABC):
     """
@@ -22,45 +24,78 @@ class Series1Pair(PairBuilder):
     """
     target_class = XYPair
 
+    def __init__(self):
+        # Initialize logging for this class
+        # self.logger = logging.getLogger(__name__ + ".Series1Pair")
+        super().__init__()
+
     def from_row(self, row: list[str]) -> RawData:
         """
         Create XYPair object from a row.
         """
-        cls = self.target_class
-        # the rest of the implementation...
-        # return cls(arguments based on the value of row)
-        return cls(row[0], row[1])
-
+        try:
+            cls = self.target_class
+            # the rest of the implementation...
+            # return cls(arguments based on the value of row)
+            return cls(row[0], row[1])
+        except Exception as e:
+            # self.logger.error(f"Error in {self.__class__.__name__} - from_row: {str(e)}")
+            raise
 
 class Series2Pair(PairBuilder):
     target_class = XYPair
 
-    def from_row(self, row: list[str]) -> RawData:
-        cls = self.target_class
-        # the rest of the implementation...
-        # return cls(arguments based on the value of row)
-        return cls(row[0], row[2])
+    def __init__(self):
+        # Initialize logging for this class
+        # self.logger = logging.getLogger(__name__ + ".Series2Pair")
+        super().__init__()
 
+    def from_row(self, row: list[str]) -> RawData:
+        try:
+            cls = self.target_class
+            # the rest of the implementation...
+            # return cls(arguments based on the value of row)
+            return cls(row[0], row[2])
+        except Exception as e:
+            # self.logger.error(f"Error in {self.__class__.__name__} - from_row: {str(e)}")
+            raise
 
 class Series3Pair(PairBuilder):
     target_class = XYPair
 
+    def __init__(self):
+        # Initialize logging for this class
+        # self.logger = logging.getLogger(__name__ + ".Series3Pair")
+        super().__init__()
+
     def from_row(self, row: list[str]) -> RawData:
-        cls = self.target_class
-        # the rest of the implementation...
-        # return cls(arguments based on the value of row)
-        return cls(row[0], row[3])
+        try:
+            cls = self.target_class
+            # the rest of the implementation...
+            # return cls(arguments based on the value of row)
+            return cls(row[0], row[3])
+        except Exception as e:
+            # self.logger.error(f"Error in {self.__class__.__name__} - from_row: {str(e)}")
+            raise
 
 
 class Series4Pair(PairBuilder):
     target_class = XYPair
 
-    def from_row(self, row: list[str]) -> RawData:
-        cls = self.target_class
-        # the rest of the implementation...
-        # return cls(arguments based on the value of row)
-        return cls(row[4], row[5])
+    def __init__(self):
+        # Initialize logging for this class
+        # self.logger = logging.getLogger(__name__ + ".Series4Pair")
+        super().__init__()
 
+    def from_row(self, row: list[str]) -> RawData:
+        try:
+            cls = self.target_class
+            # the rest of the implementation...
+            # return cls(arguments based on the value of row)
+            return cls(row[4], row[5])
+        except Exception as e:
+            # self.logger.error(f"Error in {self.__class__.__name__} - from_row: {str(e)}")
+            raise
 
 # Extract class that utilizes the PairBuilder
 class Extract:
@@ -70,24 +105,38 @@ class Extract:
 
     def __init__(self, builder: PairBuilder):
         self.builder = builder
+        # self.logger = logging.getLogger("Extract")
 
     def build_pair(self, row: list[str]) -> list[RawData]:
         """
         Build RawData objects based on the given row.
         """
-        return [bldr.from_row(row) for bldr in self.builder]
+        try:
+            return [bldr.from_row(row) for bldr in self.builder]
+        except Exception as e:
+            # self.logger.error(f"Error in Extract - build_pair: {str(e)}")
+            raise
 
     def process_csv_content(self, csv_content):
-        return [self.builder.from_row(row) for row in csv_content]
-
+        try:
+            return [self.builder.from_row(row) for row in csv_content]
+        except Exception as e:
+            # self.logger.error(f"Error in Extract - process_csv_content: {str(e)}")
+            raise
 
 class SubsetExtract(Extract):
     def __init__(self, builders, limit):
         super().__init__(builders)
         self.limit = limit
+        # self.logger = logging.getLogger("SubsetExtract")
 
     def build_pair(self, row):
-        return super().build_pair(row)[:self.limit]
+        try:
+            pairs = super().build_pair(row)
+            return pairs[:self.limit] if self.limit is not None else pairs
+        except Exception as e:
+            # self.logger.error(f"Error in SubsetExtract - build_pair: {str(e)}")
+            raise
 
 
 EXTRACT_CLASS: type[Extract] = Extract

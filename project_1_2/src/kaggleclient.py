@@ -7,6 +7,8 @@ from project_1_1.src.csvextract import Extract, Series1Pair
 from typing import Iterator
 import time
 import pprint
+import sys
+
 
 class RestAccess:
     def __init__(self, keyfile_path: Path):
@@ -93,7 +95,7 @@ class RestAccess:
 
 # Separate client class or function
 class ZipProcessor:
-    def process_zip_content(self, zip_file_path: Path, builder):
+    def process_zip_content(self, zip_file_path: Path, builder, logger):
         with ZipFile(zip_file_path, "r") as zip_archive:
             # Assuming the CSV file is named in the ZIP archive
             csv_member_name = "Anscombe_quartet_data.csv"
@@ -105,7 +107,7 @@ class ZipProcessor:
                 processed_data = extract_instance.process_csv_content(csv_content)
 
                 # Print or use the processed data as needed
-                print(processed_data)
+                logger.info(processed_data)
 
 
 if __name__ == "__main__":
@@ -115,30 +117,30 @@ if __name__ == "__main__":
     # Create an instance of the RestAccess class
     kaggle_client = RestAccess(keyfile_path)
 
-    # Specify the last URL
-    list_url = "https://www.kaggle.com/api/v1/datasets/list"
+    # # Specify the last URL
+    # list_url = "https://www.kaggle.com/api/v1/datasets/list"
+    #
+    # # Define query parameters based on your requirements
+    # query_params = {
+    #     "maxSize": "1000000",
+    #     "filetype": "csv"
+    # }
+    #
+    # # Use the RestAccess class to scan data sets
+    # for row in kaggle_client.dataset_iter(list_url, query_params):
+    #     print(row["title"], row["ref"], row["url"], row["totalBytes"])
 
-    # Define query parameters based on your requirements
-    query_params = {
-        "maxSize": "1000000",
-        "filetype": "csv"
-    }
+    # Specify the owner and dataset_slug
+    owner_slug = "carlmcbrideellis"
+    dataset_slug = "data-anscombes-quartet"
 
-    # Use the RestAccess class to scan data sets
-    for row in kaggle_client.dataset_iter(list_url, query_params):
-        print(row["title"], row["ref"], row["url"], row["totalBytes"])
+    # Download the ZIP archive
+    zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
 
-    # # Specify the owner and dataset_slug
-    # owner_slug = "carlmcbrideellis"
-    # dataset_slug = "data-anscombes-quartet"
-    #
-    # # Download the ZIP archive
-    # zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
-    #
-    # print(f"ZIP archive downloaded and saved at: {zip_file_path}")
-    #
-    # # Create an instance of the ZipProcessor class
-    # zip_processor = ZipProcessor()
-    #
-    # # Process the content of the ZIP archive
+    print(f"ZIP archive downloaded and saved at: {zip_file_path}")
+
+    # Create an instance of the ZipProcessor class
+    zip_processor = ZipProcessor()
+
+    # Process the content of the ZIP archive
     # zip_processor.process_zip_content(zip_file_path, Series1Pair())
