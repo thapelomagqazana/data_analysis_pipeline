@@ -126,12 +126,6 @@ def survey_data_sets(query_params : dict, kaggle_file_path: Path):
     # Specify the last URL
     list_url = "https://www.kaggle.com/api/v1/datasets/list"
 
-    # Define query parameters based on your requirements
-    # query_params = {
-    #     "maxSize": "1000000",
-    #     "filetype": "csv"
-    # }
-
     # Use the RestAccess class to scan data sets
     for row in kaggle_client.dataset_iter(list_url, query_params):
         logger.info(row["title"], row["ref"], row["url"], row["totalBytes"])
@@ -153,11 +147,19 @@ def get_options(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--limit", type=int, help="Limit the number of the rows to be extracted")
     parser.add_argument("source", type=Path, nargs="*")
     parser.add_argument("-k", "--kaggle", type=Path, help="Enable Kaggle operations")
-    parser.add_argument("-s", "--search", action="store_true", help="Search for interesting data sets", default={"maxSize": "1000000", "filetype": "csv"})
+    parser.add_argument("-s", "--search", action="store_true", help="Search for interesting data sets")
     parser.add_argument("--zip", type=str, default="carlmcbrideellis/data-anscombes-quartet",
                         help="ZIP file path for extraction when using Kaggle operations")
+    parser.add_argument("--maxSize", type=int, default=1000000, help="Maximum size for data sets")
+    parser.add_argument("--filetype", type=str, default="csv", help="File type for data sets")
 
-    return parser.parse_args(argv, defaults)
+    args = parser.parse_args(argv, defaults)
+
+    # If the search flag is provided, create a dictionary with search parameters
+    if args.search:
+        args.search_params = {"maxSize": args.maxSize, "filetype": args.filetype}
+
+    return args
 
 
 EXTRACT_CLASS: type[Extract] = Extract
@@ -197,7 +199,7 @@ def main(argv: list[str]) -> None:
                 and options.kaggle.is_file() and "/" in options.zip and len(options.zip.split("/")) == 2:
             download_and_extract_data(options.zip, options.kaggle)
         elif options.kaggle and options.search:
-            survey_data_sets(options.search, options.kaggle)
+            survey_data_sets(options.search_params, options.kaggle)
         else:
             logger.error("Invalid combination of options. Please provide valid options.")
             return
