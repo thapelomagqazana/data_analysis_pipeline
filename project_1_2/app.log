@@ -1,0 +1,122 @@
+2023-12-07 16:22:38,026 - __main__ - INFO - Logging configured successfully.
+2023-12-07 16:22:38,042 - __main__ - ERROR - Invalid combination of options. Please provide valid options.
+2023-12-07 16:32:01,557 - __main__ - INFO - Logging configured successfully.
+2023-12-07 16:32:01,565 - __main__ - ERROR - Invalid combination of options. Please provide valid options.
+2023-12-07 16:39:32,052 - __main__ - INFO - Logging configured successfully.
+2023-12-07 16:39:32,081 - __main__ - ERROR - Invalid combination of options. Please provide valid options.
+2023-12-07 16:48:16,309 - __main__ - INFO - Logging configured successfully.
+2023-12-07 16:48:16,317 - __main__ - ERROR - Invalid combination of options. Please provide valid options.
+2023-12-07 16:51:31,289 - __main__ - INFO - Logging configured successfully.
+2023-12-07 16:51:33,683 - __main__ - INFO - ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+2023-12-07 16:51:33,685 - __main__ - INFO - [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+2023-12-07 16:53:36,184 - __main__ - INFO - Logging configured successfully.
+2023-12-07 16:53:36,194 - __main__ - ERROR - Invalid combination of options. Please provide valid options.
+2023-12-07 16:55:44,654 - __main__ - INFO - Logging configured successfully.
+2023-12-07 16:55:44,661 - __main__ - ERROR - Invalid combination of options. Please provide valid options.
+2023-12-07 16:57:05,768 - __main__ - INFO - Logging configured successfully.
+2023-12-07 16:57:08,050 - __main__ - INFO - ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+2023-12-07 16:57:08,051 - __main__ - INFO - [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+2023-12-07 17:05:44,686 - __main__ - INFO - Logging configured successfully.
+2023-12-07 17:05:47,312 - __main__ - INFO - ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+2023-12-07 17:05:47,321 - __main__ - INFO - [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+2023-12-07 17:19:48,302 - __main__ - INFO - Logging configured successfully.
+2023-12-07 17:19:50,280 - __main__ - INFO - ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+2023-12-07 17:19:50,280 - __main__ - INFO - header: ['mock', 'data']
+2023-12-07 17:19:50,281 - __main__ - INFO - count: 1
+2023-12-07 17:19:50,282 - __main__ - INFO - [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+2023-12-07 17:21:40,594 - __main__ - INFO - Logging configured successfully.
+2023-12-07 17:21:42,371 - __main__ - INFO - ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+2023-12-07 17:21:42,372 - __main__ - INFO - header: ['mock', 'data']
+2023-12-07 17:21:42,372 - __main__ - INFO - count: 1
+2023-12-07 17:21:42,373 - __main__ - INFO - [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+2023-12-07 17:35:01,589 - __main__ - INFO - Logging configured successfully.
+2023-12-07 17:35:03,576 - __main__ - INFO - ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+2023-12-07 17:35:03,576 - __main__ - INFO - header: ['mock', 'data']
+2023-12-07 17:35:03,577 - __main__ - INFO - count: 1
+2023-12-07 17:35:03,578 - __main__ - INFO - [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+ERROR: Invalid combination of options. Please provide valid options.
+INFO: Logging configured successfully.
+ERROR: Invalid combination of options. Please provide valid options.
+INFO: Logging configured successfully.
+ERROR: Invalid combination of options. Please provide valid options.
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
+INFO: Logging configured successfully.
+INFO: ZIP archive downloaded and saved at: carlmcbrideellis_data-anscombes-quartet.zip
+INFO: header: ['mock', 'data']
+INFO: count: 1
+INFO: [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]

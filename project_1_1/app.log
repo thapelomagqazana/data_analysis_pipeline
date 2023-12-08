@@ -97,3 +97,11 @@
 2023-12-05 15:36:08,803 - __main__ - INFO - [XYPair(x='x123', y='y1'), XYPair(x='10.0', y='8.04'), XYPair(x='8.0', y='6.95'), XYPair(x='13.0', y='7.58'), XYPair(x='9.0', y='8.81'), XYPair(x='11.0', y='8.33'), XYPair(x='14.0', y='9.96'), XYPair(x='6.0', y='7.24'), XYPair(x='4.0', y='4.26'), XYPair(x='12.0', y='10.84'), XYPair(x='7.0', y='4.82'), XYPair(x='5.0', y='5.68')]
 2023-12-05 15:42:54,104 - __main__ - INFO - Logging configured successfully.
 2023-12-05 15:44:16,103 - __main__ - INFO - Logging configured successfully.
+2023-12-06 09:12:10,503 - __main__ - INFO - Logging configured successfully.
+2023-12-06 09:12:10,525 - __main__ - INFO - Extracting data from Anscombe_quartet_data.csv...
+2023-12-06 09:12:10,525 - __main__ - INFO - Data successfully extracted to quartet/Series_1.ndjson, quartet/Series_2.ndjson, and so on.
+2023-12-06 09:12:10,525 - __main__ - INFO - Extraction completed!
+2023-12-08 11:15:55,225 - __main__ - INFO - Logging configured successfully.
+2023-12-08 11:15:55,238 - __main__ - INFO - Extracting data from Anscombe_quartet_data.csv...
+2023-12-08 11:15:55,238 - __main__ - INFO - Data successfully extracted to quartet/Series_1.ndjson, quartet/Series_2.ndjson, and so on.
+2023-12-08 11:15:55,238 - __main__ - INFO - Extraction completed!
