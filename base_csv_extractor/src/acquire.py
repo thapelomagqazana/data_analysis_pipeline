@@ -12,12 +12,11 @@ import toml
 # from project_1_2.src.kaggleclient import RestAccess, ZipProcessor
 
 
-# Assuming acquire.py is in the src directory
-project_path = Path(__file__).resolve().parents[2]
-sys.path.append(str(project_path))
+# # Assuming acquire.py is in the src directory
+# project_path = Path(__file__).resolve().parents[2]
+# sys.path.append(str(project_path))
 
 # Inside acquire.py
-from project_1_2.src.kaggleclient import RestAccess, ZipProcessor
 
 
 # Create and configure a logger
@@ -99,36 +98,36 @@ def extract_local_data(options, builders, argv):
         return
 
 
-def download_and_extract_data(zip_file: str, kaggle_file_path: Path):
-    # Create an instance of the RestAccess class
-    kaggle_client = RestAccess(kaggle_file_path)
-
-    # Specify the owner and dataset_slug
-    owner_slug = zip_file.split("/")[0]
-    dataset_slug = zip_file.split("/")[1]
-
-    # Download the ZIP archive
-    zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
-
-    logger.info(f"ZIP archive downloaded and saved at: {zip_file_path}")
-
-    # Create an instance of the ZipProcessor class
-    zip_processor = ZipProcessor()
-
-    # Process the content of the ZIP archive
-    zip_processor.process_zip_content(zip_file_path, Series1Pair(), logger)
-
-
-def survey_data_sets(query_params : dict, kaggle_file_path: Path):
-    # Create an instance of the RestAccess class
-    kaggle_client = RestAccess(kaggle_file_path)
-
-    # Specify the last URL
-    list_url = "https://www.kaggle.com/api/v1/datasets/list"
-
-    # Use the RestAccess class to scan data sets
-    for row in kaggle_client.dataset_iter(list_url, query_params):
-        logger.info(row["title"], row["ref"], row["url"], row["totalBytes"])
+# def download_and_extract_data(zip_file: str, kaggle_file_path: Path):
+#     # Create an instance of the RestAccess class
+#     kaggle_client = RestAccess(kaggle_file_path)
+#
+#     # Specify the owner and dataset_slug
+#     owner_slug = zip_file.split("/")[0]
+#     dataset_slug = zip_file.split("/")[1]
+#
+#     # Download the ZIP archive
+#     zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
+#
+#     logger.info(f"ZIP archive downloaded and saved at: {zip_file_path}")
+#
+#     # Create an instance of the ZipProcessor class
+#     zip_processor = ZipProcessor()
+#
+#     # Process the content of the ZIP archive
+#     zip_processor.process_zip_content(zip_file_path, Series1Pair(), logger)
+#
+#
+# def survey_data_sets(query_params : dict, kaggle_file_path: Path):
+#     # Create an instance of the RestAccess class
+#     kaggle_client = RestAccess(kaggle_file_path)
+#
+#     # Specify the last URL
+#     list_url = "https://www.kaggle.com/api/v1/datasets/list"
+#
+#     # Use the RestAccess class to scan data sets
+#     for row in kaggle_client.dataset_iter(list_url, query_params):
+#         logger.info(row["title"], row["ref"], row["url"], row["totalBytes"])
 
 
 def get_options(argv: list[str]) -> argparse.Namespace:
@@ -146,18 +145,18 @@ def get_options(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("-o", "--output", type=Path, help="Local CSV file path for extraction")
     parser.add_argument("--limit", type=int, help="Limit the number of the rows to be extracted")
     parser.add_argument("source", type=Path, nargs="*")
-    parser.add_argument("-k", "--kaggle", type=Path, help="Enable Kaggle operations")
-    parser.add_argument("-s", "--search", action="store_true", help="Search for interesting data sets")
-    parser.add_argument("--zip", type=str, default="carlmcbrideellis/data-anscombes-quartet",
-                        help="ZIP file path for extraction when using Kaggle operations")
-    parser.add_argument("--maxSize", type=int, default=1000000, help="Maximum size for data sets")
-    parser.add_argument("--filetype", type=str, default="csv", help="File type for data sets")
+    # parser.add_argument("-k", "--kaggle", type=Path, help="Enable Kaggle operations")
+    # parser.add_argument("-s", "--search", action="store_true", help="Search for interesting data sets")
+    # parser.add_argument("--zip", type=str, default="carlmcbrideellis/data-anscombes-quartet",
+    #                     help="ZIP file path for extraction when using Kaggle operations")
+    # parser.add_argument("--maxSize", type=int, default=1000000, help="Maximum size for data sets")
+    # parser.add_argument("--filetype", type=str, default="csv", help="File type for data sets")
 
     args = parser.parse_args(argv, defaults)
 
     # If the search flag is provided, create a dictionary with search parameters
-    if args.search:
-        args.search_params = {"maxSize": args.maxSize, "filetype": args.filetype}
+    # if args.search:
+    #     args.search_params = {"maxSize": args.maxSize, "filetype": args.filetype}
 
     return args
 
@@ -193,13 +192,13 @@ def main(argv: list[str]) -> None:
     try:
         options = get_options(argv)
 
-        if options.output and not options.kaggle:
+        if options.output and options.source:
             extract_local_data(options, builders, argv)
-        elif options.kaggle and options.output and options.zip \
-                and options.kaggle.is_file() and "/" in options.zip and len(options.zip.split("/")) == 2:
-            download_and_extract_data(options.zip, options.kaggle)
-        elif options.kaggle and options.search:
-            survey_data_sets(options.search_params, options.kaggle)
+        # elif options.kaggle and options.output and options.zip \
+        #         and options.kaggle.is_file() and "/" in options.zip and len(options.zip.split("/")) == 2:
+        #     download_and_extract_data(options.zip, options.kaggle)
+        # elif options.kaggle and options.search:
+        #     survey_data_sets(options.search_params, options.kaggle)
         else:
             logger.error("Invalid combination of options. Please provide valid options.")
             return

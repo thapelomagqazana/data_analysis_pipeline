@@ -109,3 +109,17 @@
 2023-12-09 15:19:30,184 - __main__ - INFO - Extracting data from Anscombe_quartet_data.csv...
 2023-12-09 15:19:30,187 - __main__ - INFO - Data successfully extracted to quartet/Series_1.ndjson, quartet/Series_2.ndjson, and so on.
 2023-12-09 15:19:30,187 - __main__ - INFO - Extraction completed!
+2023-12-10 22:08:08,947 - __main__ - INFO - Logging configured successfully.
+2023-12-10 22:08:08,978 - __main__ - ERROR - An unexpected error occurred: 'Namespace' object has no attribute 'kaggle'
+2023-12-10 22:09:23,290 - __main__ - INFO - Logging configured successfully.
+2023-12-10 22:09:23,353 - __main__ - INFO - Extracting data from Anscombe_quartet_data.csv...
+2023-12-10 22:09:23,355 - __main__ - INFO - Data successfully extracted to quartet/Series_1.ndjson, quartet/Series_2.ndjson, and so on.
+2023-12-10 22:09:23,355 - __main__ - INFO - Extraction completed!
+2023-12-10 22:10:31,960 - __main__ - INFO - Logging configured successfully.
+2023-12-10 22:10:31,997 - __main__ - INFO - Extracting data from Anscombe_quartet_data.csv...
+2023-12-10 22:10:31,998 - __main__ - INFO - Data successfully extracted to quartet/Series_1.ndjson, quartet/Series_2.ndjson, and so on.
+2023-12-10 22:10:31,998 - __main__ - INFO - Extraction completed!
+2023-12-10 22:10:41,845 - __main__ - INFO - Logging configured successfully.
+2023-12-10 22:10:41,886 - __main__ - INFO - Extracting data from Anscombe_quartet_data.csv...
+2023-12-10 22:10:41,888 - __main__ - INFO - Data successfully extracted to --limit/Series_1.ndjson, --limit/Series_2.ndjson, and so on.
+2023-12-10 22:10:41,889 - __main__ - INFO - Extraction completed!

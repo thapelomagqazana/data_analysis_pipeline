@@ -8,6 +8,7 @@
 
 import subprocess
 import os
+import json
 
 def run_extraction_process(command_options):
     command = f"python src/acquire.py -o output_folder {command_options} co2-mm-mlo_csv.csv"
@@ -88,9 +89,10 @@ def step_when_command_executed_no_limit(context):
 
 @then('the output file contains {count} data points')
 def step_then_output_contains_count(context, count):
-    output_count = len(context.command_output)  # Assuming the output content is stored
-    print(output_count)
+    print(repr(context.command_output))
+    output_data = json.loads(context.command_output)
+    output_count = len(output_data)
     if count.isdigit():
         assert output_count == int(count)
     else:
-        assert output_count == 0
+        assert output_count == 0, "The output count should be 0."

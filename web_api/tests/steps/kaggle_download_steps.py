@@ -14,7 +14,7 @@ def given_proper_keys(context):
 def when_run_kaggle_download_command(context):
     command = [
         'python',
-        'src/acquire.py',
+        'web_api/src/acquire.py',
         '-k', str(Path.home() / 'data_analysis_pipeline' / 'project_1_2' / 'kaggle.json'),
         '-o', 'quartet',
         '--zip', 'carlmcbrideellis/data-anscombes-quartet'

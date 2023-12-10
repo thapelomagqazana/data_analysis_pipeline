@@ -106,39 +106,53 @@ def extract_local_data(options, builders, argv):
 
 
 def download_and_extract_data(zip_file: str, kaggle_file_path: Path):
-    # Create an instance of the RestAccess class
-    kaggle_client = RestAccess(kaggle_file_path)
 
-    # Specify the owner and dataset_slug
-    owner_slug = zip_file.split("/")[0]
-    dataset_slug = zip_file.split("/")[1]
+    try:
+        with kaggle_file_path.open() as keyfile:
+            credentials = json.load(keyfile)
+        # Create an instance of the RestAccess class
+        kaggle_client = RestAccess(credentials)
 
-    # Download the ZIP archive
-    zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
+        # Specify the owner and dataset_slug
+        owner_slug = zip_file.split("/")[0]
+        dataset_slug = zip_file.split("/")[1]
 
-    logger.info(f"ZIP archive downloaded and saved at: {zip_file_path}")
+        # Download the ZIP archive
+        zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
 
-    # Additional log lines for acceptance test
-    logger.info("header: ['mock', 'data']")
-    logger.info("count: 1")
+        logger.info(f"ZIP archive downloaded and saved at: {zip_file_path}")
 
-    # Create an instance of the ZipProcessor class
-    zip_processor = ZipProcessor()
+        # Additional log lines for acceptance test
+        logger.info("header: ['mock', 'data']")
+        logger.info("count: 1")
 
-    # Process the content of the ZIP archive
-    zip_processor.process_zip_content(zip_file_path, Series1Pair(), logger)
+        # Create an instance of the ZipProcessor class
+        zip_processor = ZipProcessor()
+
+        # Process the content of the ZIP archive
+        zip_processor.process_zip_content(zip_file_path, Series1Pair(), logger)
+
+    except FileNotFoundError:
+        print("kaggle.json doesn't exist")
+
 
 
 def survey_data_sets(query_params: dict, kaggle_file_path: Path):
-    # Create an instance of the RestAccess class
-    kaggle_client = RestAccess(kaggle_file_path)
+    try:
+        with kaggle_file_path.open() as keyfile:
+            credentials = json.load(keyfile)
+        # Create an instance of the RestAccess class
+        kaggle_client = RestAccess(credentials)
 
-    # Specify the last URL
-    list_url = "https://www.kaggle.com/api/v1/datasets/list"
+        # Specify the last URL
+        list_url = "https://www.kaggle.com/api/v1/datasets/list"
 
-    # Use the RestAccess class to scan data sets
-    for row in kaggle_client.dataset_iter(list_url, query_params):
-        logger.info(row["title"], row["ref"], row["url"], row["totalBytes"])
+        # Use the RestAccess class to scan data sets
+        for row in kaggle_client.dataset_iter(list_url, query_params):
+            logger.info(row["title"], row["ref"], row["url"], row["totalBytes"])
+    except FileNotFoundError:
+        print("kaggle.json doesn't exist")
+
 
 
 def get_options(argv: list[str]) -> argparse.Namespace:

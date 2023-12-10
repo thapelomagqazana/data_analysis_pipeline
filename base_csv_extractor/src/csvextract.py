@@ -1,4 +1,4 @@
-from model import RawData, XYPair
+from base_csv_extractor.src.model import RawData, XYPair
 from abc import ABC, abstractmethod
 import logging
 

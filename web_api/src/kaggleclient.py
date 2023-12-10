@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import requests.auth
 from zipfile import ZipFile
-from csvextract import Extract, Series1Pair
+from web_api.src.csvextract import Extract, Series1Pair
 from typing import Iterator
 import time
 
@@ -21,21 +21,17 @@ class RestAccess:
         - get_zip(self, owner_slug: str, dataset_slug: str): Download a dataset as a ZIP file.
 
         """
-    def __init__(self, keyfile_path: Path):
+    def __init__(self, credentials: dict):
         """
         Initialize the RestAccess object.
 
         Parameters:
         - keyfile_path (Path): Path to the Kaggle API key file.
         """
-        try:
-            with keyfile_path.open() as keyfile:
-                credentials = json.load(keyfile)
-                self.auth = requests.auth.HTTPBasicAuth(
-                    credentials["username"], credentials["key"]
-                )
-        except FileNotFoundError:
-            print("kaggle.json doesn't exist")
+        self.credentials = credentials
+        self.auth = requests.auth.HTTPBasicAuth(
+            self.credentials["username"], self.credentials["key"]
+        )
 
     def dataset_iter(self, url: str, query: dict) -> Iterator[dict]:
         """
@@ -166,35 +162,44 @@ class ZipProcessor:
 
 if __name__ == "__main__":
     # Assuming you have the kaggle.json file in the Downloads folder
-    keyfile_path = Path.home() / "data_analysis_pipeline" / "project_1_2" / "kaggle.json"
+    keyfile_path = Path.home() / "data_analysis_pipeline" / "web_api" / "kaggle.json"
 
-    # Create an instance of the RestAccess class
-    kaggle_client = RestAccess(keyfile_path)
+    try:
+        with keyfile_path.open() as keyfile:
+            credentials = json.load(keyfile)
 
-    # # Specify the last URL
-    # list_url = "https://www.kaggle.com/api/v1/datasets/list"
-    #
-    # # Define query parameters based on your requirements
-    # query_params = {
-    #     "maxSize": "1000000",
-    #     "filetype": "csv"
-    # }
-    #
-    # # Use the RestAccess class to scan data sets
-    # for row in kaggle_client.dataset_iter(list_url, query_params):
-    #     print(row["title"], row["ref"], row["url"], row["totalBytes"])
+            # Create an instance of the RestAccess class
+            kaggle_client = RestAccess(credentials)
 
-    # Specify the owner and dataset_slug
-    owner_slug = "carlmcbrideellis"
-    dataset_slug = "data-anscombes-quartet"
+            # # Specify the last URL
+            # list_url = "https://www.kaggle.com/api/v1/datasets/list"
+            #
+            # # Define query parameters based on your requirements
+            # query_params = {
+            #     "maxSize": "1000000",
+            #     "filetype": "csv"
+            # }
+            #
+            # # Use the RestAccess class to scan data sets
+            # for row in kaggle_client.dataset_iter(list_url, query_params):
+            #     print(row["title"], row["ref"], row["url"], row["totalBytes"])
 
-    # Download the ZIP archive
-    zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
+            # Specify the owner and dataset_slug
+            owner_slug = "carlmcbrideellis"
+            dataset_slug = "data-anscombes-quartet"
 
-    print(f"ZIP archive downloaded and saved at: {zip_file_path}")
+            # Download the ZIP archive
+            zip_file_path = kaggle_client.get_zip(owner_slug, dataset_slug)
 
-    # Create an instance of the ZipProcessor class
-    zip_processor = ZipProcessor()
+            print(f"ZIP archive downloaded and saved at: {zip_file_path}")
 
-    # Process the content of the ZIP archive
-    # zip_processor.process_zip_content(zip_file_path, Series1Pair())
+            # Create an instance of the ZipProcessor class
+            zip_processor = ZipProcessor()
+
+            # Process the content of the ZIP archive
+            # zip_processor.process_zip_content(zip_file_path, Series1Pair())
+
+    except FileNotFoundError:
+        print("kaggle.json doesn't exist")
+
+
